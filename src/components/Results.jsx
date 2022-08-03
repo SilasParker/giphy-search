@@ -1,19 +1,16 @@
 import React, {Component} from "react";
+import '../style/Results.css';
 
 export default class Results extends Component {
 
     generateGiphy = link => {
-        console.log("here"+link);
-        return <img alt="a gif" src={link}/>
+        return <img class="gif" alt="a gif" src={link} width="500px" height="500px"/>
     }
 
 
     render() {
-        console.log("props");
-        console.log(this.props);
         return(
-            <div>
-                <p>?</p>
+            <div class="results">
                 {this.props?.images?.map((srcLink) => {
                     return this.generateGiphy(srcLink);
                 })}

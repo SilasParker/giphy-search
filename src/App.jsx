@@ -13,9 +13,8 @@ export default class App extends Component {
     }
   }
 
-  handleSearch = event => {
-    console.log("value 2: "+event);
-    searchGiphy(event)
+  handleSearch = (query, limit, rating, lang) => {
+    searchGiphy(query, limit, rating, lang)
     .then(response => response.json())
     .then(content => {
       let allGifs = content.data.map((element) => element.images.downsized.url);
@@ -26,7 +25,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>GIPHY TIME</header>
+        <header><h1>GIPHY TIME</h1></header>
         <InputForm search={this.handleSearch}/>
         <Results images={this.state.searchResults} />
       </div>
