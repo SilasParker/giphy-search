@@ -1,16 +1,37 @@
-import React from "react";
+import React, {Component} from "react";
+import { getYearOptions } from "../utils";
 
-import FilterBox from "./FilterBox";
-import SearchBar from "./SearchBar";
+export default class InputForm extends Component {
 
-export default function InputForm() {
-    return(
-        <form>
-            <SearchBar />
+    handleSubmit = event => {
+        console.log("value 1: "+document.getElementById("search-input").value);
+        this.props.search(document.getElementById("search-input").value);
+    }
+
+    render() {
+        return(
             <div>
-                <FilterBox />
-                
+                <form>
+                    <input type="text" id="search-input"/>
+                    <input type="button" value="Search" onClick={this.handleSubmit} />
+                    <div>
+                        <div>
+                            <label for="after-select">Released After</label>
+                            <select id="after-select">
+                                <option value="" selected disabled hidden>Select...</option>
+                                {getYearOptions(24)}
+                            </select>
+                        </div>
+                        <div>
+                            <label for="before-select">Released Before</label>
+                            <select id="before-select">
+                                <option value="" selected disabled hidden>Select...</option>
+                                {getYearOptions(24)}
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-    );
+        );
+    }
 }
