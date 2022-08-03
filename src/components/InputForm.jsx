@@ -3,7 +3,6 @@ import '../style/InputForm.css'
 
 export default class InputForm extends Component {
 
-
     handleSubmit = event => {
         event.preventDefault();
         this.props.search(
@@ -18,8 +17,8 @@ export default class InputForm extends Component {
         return(
             <form onSubmit={this.handleSubmit}>
                 <div>
-                <input class="search-bar" type="text" id="search-input"/>
-                <button class="search-submit" type="submit" value="Search">Search</button>
+                    <input class="search-bar" type="text" id="search-input"/>
+                    <button class="search-submit" type="submit" value="Search">Search</button>
                 </div>
                 <div>
                     <h1>Filters</h1>
