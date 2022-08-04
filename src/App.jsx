@@ -13,6 +13,7 @@ export default class App extends Component {
     }
   }
 
+  //calls the function to search giphy api and sets the search result state
   handleSearch = (query, limit, rating, lang) => {
     searchGiphy(query, limit, rating, lang)
     .then(response => response.json())

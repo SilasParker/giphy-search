@@ -3,6 +3,7 @@ import '../style/InputForm.css'
 
 export default class InputForm extends Component {
 
+    //handles the submit button being pressed, triggering the search, passing all the form values
     handleSubmit = event => {
         event.preventDefault();
         this.props.search(
